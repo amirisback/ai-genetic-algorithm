@@ -34,7 +34,7 @@ public class Chromosome extends BaseModel {
 
     // Decode Kromosom
     // Dengan cara mengisi Kromosom dengam bilangan bulat
-    // Setiap bilangan real yang di hasilkan secara random dari 0-9
+    // Setiap bilangan real yang di hasilkan secara random dari 0-2
     // Setiap kromomosom dibatasi panjangnya
     public void initElement(int value){
         for (int i = 0; i<value; i++){

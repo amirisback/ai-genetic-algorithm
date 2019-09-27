@@ -4,6 +4,7 @@ import com.frogobox.base.BaseModel;
 import com.frogobox.model.Chromosome;
 import com.frogobox.model.Creature;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -24,11 +25,19 @@ import java.util.Random;
  */
 public class Algorithm extends BaseModel {
 
-    private final int SUM_POPULATION = 6;
-    private final int SUM_CHROMOSOME = 2;
+    public final int SUM_POPULATION = 6;
+    public final int SUM_CHROMOSOME = 3;
+    public ArrayList<Creature> population = new ArrayList<>();
 
+    public double getChromosomePoint(Chromosome chromosome){
+        int value = 0;
+        for (int i = 0; i<chromosome.getElement().size(); i++) {
+            value = value + chromosome.getElement().get(i);
+        }
+        return (double) value;
+    }
 
-    protected double getFitnessPoint(double x1, double x2){
+    public double getFitnessPoint(double x1, double x2){
         final double POW_2 = 2.0;
         final double POW_4 = 4.0;
 
@@ -40,7 +49,7 @@ public class Algorithm extends BaseModel {
     }
 
     // Deklarasi bahwa setiap makhluk mempunyai 2 Kromosom
-    protected Creature creature(){
+    public Creature creature(){
         Chromosome chromosome1 = new Chromosome();
         Chromosome chromosome2 = new Chromosome();
 
@@ -54,7 +63,7 @@ public class Algorithm extends BaseModel {
         return creature;
     }
 
-    protected Chromosome mutationChromosome(Chromosome chromosome){
+    public Chromosome mutationChromosome(Chromosome chromosome){
         int randomRow = new Random().nextInt(chromosome.getElement().size());
         int randomRowValue = chromosome.getElement().get(randomRow);
         int randomRowChromosome = new Random().nextInt(chromosome.getElement().size());
@@ -62,7 +71,7 @@ public class Algorithm extends BaseModel {
         return chromosome;
     }
 
-    protected void crossOverChromosome(Chromosome chromosome1, Chromosome chromosome2){
+    public void crossOverChromosome(Chromosome chromosome1, Chromosome chromosome2){
 
         int randomRow1 = new Random().nextInt(chromosome1.getElement().size());
         int randomRow2 = new Random().nextInt(chromosome2.getElement().size());
@@ -78,9 +87,25 @@ public class Algorithm extends BaseModel {
 
     }
 
-    protected void declarePopulation(){
-
-
+    public void declarePopulation(){
+        for (int i=0; i<SUM_POPULATION; i++){
+            population.add(creature());
+        }
     }
+
+    public void showElementPopulation(){
+        System.out.println("Susunan Kromosom");
+        for (int i=0; i<population.size(); i++){
+            System.out.println("Makhluk - " +(i+1));
+            for(int j=0; j<population.get(i).getElement().size(); j++) {
+                String lineChromosome = population.get(i).getElement().get(j).getElement().toString();
+                System.out.println("Kromosom ke " + (j+1) + " : " + lineChromosome);
+            }
+        }
+        System.out.println("---------------------------");
+    }
+
+    public void generationReplacement(){}
+
 
 }
