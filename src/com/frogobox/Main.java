@@ -1,7 +1,6 @@
 package com.frogobox;
 
-import java.util.ArrayList;
-import java.util.Random;
+import com.frogobox.algorithm.PopulationAlgo;
 
 /**
  * Created by Faisal Amir
@@ -34,10 +33,10 @@ public class Main {
     }
 
     public static void main (String[] args) {
-        Algorithm algorithm = new Algorithm();
-        programName(algorithm.SUM_POPULATION, algorithm.SUM_CHROMOSOME);
-        algorithm.declarePopulation();
-        algorithm.showElementPopulation();
+        PopulationAlgo populationAlgo = new PopulationAlgo();
+        programName(populationAlgo.SUM_POPULATION, populationAlgo.SUM_CHROMOSOME);
+        populationAlgo.declarePopulation();
+        populationAlgo.getPopulation();
     }
 
 }
