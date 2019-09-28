@@ -20,11 +20,11 @@ import java.util.ArrayList;
  * FrogoBox Software Industries
  * com.frogobox
  */
-public class Creature extends BaseModel {
+public class Population extends BaseModel {
 
     private ArrayList<Chromosome> element;
 
-    public Creature() {
+    public Population() {
         this.element = new ArrayList<>();
     }
 

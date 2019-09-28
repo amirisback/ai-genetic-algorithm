@@ -18,6 +18,7 @@ package com.frogobox.base;
  */
 public class BaseHelper {
 
-    public static final String LINE_VIEW = "--------------------------------------------";
+    public static final String LINE_VIEW  = "--------------------------------------------";
+    public static final String STRIP_VIEW = "============================================";
 
 }

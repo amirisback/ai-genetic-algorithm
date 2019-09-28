@@ -22,7 +22,7 @@ import java.util.Random;
 public class BaseModel {
 
     protected int randomNumber(){
-        return new Random().nextInt(3);
+        return new Random().nextInt(2);
     }
 
 }

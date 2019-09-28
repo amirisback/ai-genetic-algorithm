@@ -2,6 +2,7 @@ package com.frogobox.algorithm;
 
 import com.frogobox.model.Chromosome;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -29,6 +30,20 @@ public class ChromosomeAlgo {
         }
         return (double) value;
     }
+
+    public void getChromosome(ArrayList<Chromosome> chromosomes){
+        double sumPoint = 0;
+        for (int j = 0; j < chromosomes.size(); j++) {
+            String lineChromosome = chromosomes.get(j).getElement().toString();
+            double point = new ChromosomeAlgo().getChromosomePoint(chromosomes.get(j));
+            sumPoint = sumPoint + point;
+            System.out.print("Kromosom ke " + (j + 1) + " : " + lineChromosome);
+            System.out.println("\t Point = " + point);
+        }
+        System.out.println(">> Total Point = " + sumPoint);
+    }
+
+
 
     public double getFitnessPoint(double x1, double x2){
         final double POW_2 = 2.0;
