@@ -2,7 +2,7 @@ package com.frogobox;
 
 import com.frogobox.algorithm.PopulationAlgo;
 
-import static com.frogobox.base.BaseHelper.LINE_VIEW;
+import static com.frogobox.base.BaseHelper.*;
 
 /**
  * Created by Faisal Amir
@@ -29,9 +29,9 @@ public class Main {
         System.out.println("1301198497");
         System.out.println("IFX-43-02");
         System.out.println(LINE_VIEW);
-        System.out.println("Jumlah Populasi \t\t: " + population + " Makhluk");
-        System.out.println("1 Makhluk Memiliki \t\t: " + chromosome + " Kromosom");
-        System.out.println("1 Kromosom Memiliki \t: " + gen + " Gen");
+        System.out.println("Jumlah Populasi \t\t: " + population + " " + POPULATION);
+        System.out.println("1 Makhluk Memiliki \t\t: " + chromosome + " " + CHROMOSOME);
+        System.out.println("1 Kromosom Memiliki \t: " + gen + " " + GEN);
         System.out.println(LINE_VIEW);
     }
 

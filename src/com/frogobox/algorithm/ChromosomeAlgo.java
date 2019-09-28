@@ -5,6 +5,8 @@ import com.frogobox.model.Chromosome;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static com.frogobox.base.BaseHelper.CHROMOSOME;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -37,8 +39,8 @@ public class ChromosomeAlgo {
             String lineChromosome = chromosomes.get(j).getElement().toString();
             double point = new ChromosomeAlgo().getChromosomePoint(chromosomes.get(j));
             sumPoint = sumPoint + point;
-            System.out.print("Kromosom ke " + (j + 1) + " : " + lineChromosome);
-            System.out.println("\t Point = " + point);
+            System.out.print(CHROMOSOME + " ke " + (j + 1) + "\t: " + lineChromosome);
+            System.out.println(" -> Point = " + point);
         }
         System.out.println(">> Total Point = " + sumPoint);
     }

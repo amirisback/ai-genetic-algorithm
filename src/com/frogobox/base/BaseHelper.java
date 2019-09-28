@@ -19,6 +19,8 @@ package com.frogobox.base;
 public class BaseHelper {
 
     public static final String LINE_VIEW  = "--------------------------------------------";
-    public static final String STRIP_VIEW = "============================================";
+    public static final String POPULATION = "Makhluk";
+    public static final String CHROMOSOME = "Kromosom";
+    public static final String GEN = "Gen";
 
 }

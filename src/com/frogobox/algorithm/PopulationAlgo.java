@@ -7,6 +7,8 @@ import com.frogobox.model.Population;
 import java.util.ArrayList;
 import com.frogobox.base.BaseHelper;
 
+import static com.frogobox.base.BaseHelper.POPULATION;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -27,7 +29,7 @@ public class PopulationAlgo extends BaseModel {
 
     // -----------------------------------------------------------------------------------------------------------------
     public final int SUM_POPULATION = 6;
-    public final int SUM_GEN = 8;
+    public final int SUM_GEN = 3;
     public final int SUM_CHROMOSOME = 2;
     // -----------------------------------------------------------------------------------------------------------------
 
@@ -53,7 +55,7 @@ public class PopulationAlgo extends BaseModel {
     public void getPopulation() {
         System.out.println("Susunan Kromosom");
         for (int i = 0; i < populations.size(); i++) {
-            System.out.println("Makhluk - " + (i + 1));
+            System.out.println(POPULATION + " - " + (i + 1));
             new ChromosomeAlgo().getChromosome(populations.get(i).getElement());
             System.out.println(BaseHelper.LINE_VIEW);
         }
