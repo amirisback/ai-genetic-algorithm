@@ -21,18 +21,14 @@ import com.frogobox.model.Creature;
  */
 public class CreatureAlgo {
 
-    // Deklarasi bahwa setiap makhluk mempunyai 2 Kromosom
-    public Creature creature(int value){
-        Chromosome chromosome1 = new Chromosome();
-        Chromosome chromosome2 = new Chromosome();
-
-        chromosome1.initElement(value);
-        chromosome2.initElement(value);
-
+    // Deklarasi bahwa setiap makhluk mempunyai kromosom
+    public Creature creature(int valueGen, int valueChromosome){
         Creature creature = new Creature();
-        creature.getElement().add(chromosome1);
-        creature.getElement().add(chromosome2);
-
+        for (int i = 0; i<valueChromosome; i++) {
+            Chromosome chromosome = new Chromosome();
+            chromosome.initElement(valueGen);
+            creature.getElement().add(chromosome);
+        }
         return creature;
     }
 
