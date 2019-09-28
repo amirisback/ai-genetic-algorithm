@@ -4,6 +4,8 @@ import com.frogobox.base.BaseModel;
 
 import java.util.ArrayList;
 
+import static com.frogobox.base.BaseHelper.*;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -38,7 +40,7 @@ public class Chromosome extends BaseModel {
     // Setiap kromomosom dibatasi panjangnya
     public void initElement(int value){
         for (int i = 0; i<value; i++){
-            element.add(randomNumber());
+            element.add((int) randomNumber(RANDOM_RANGE_MIN, RANDOM_RANGE_MAX));
         }
     }
 }

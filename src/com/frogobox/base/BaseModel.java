@@ -21,8 +21,12 @@ import java.util.Random;
  */
 public class BaseModel {
 
-    protected int randomNumber(){
-        return new Random().nextInt(2);
+    protected int randomNumber(int range){
+        return new Random().nextInt(range);
+    }
+
+    protected double randomNumber(double min, double max){
+        return min + (max - min) * new Random().nextDouble();
     }
 
 }

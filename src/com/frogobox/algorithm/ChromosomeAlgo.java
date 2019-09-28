@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static com.frogobox.base.BaseHelper.CHROMOSOME;
+import static com.frogobox.base.BaseHelper.LINE_VIEW;
 
 /**
  * Created by Faisal Amir
@@ -34,20 +35,32 @@ public class ChromosomeAlgo {
     }
 
     public void getChromosome(ArrayList<Chromosome> chromosomes){
+        ArrayList<Double> fitness = new ArrayList<>();
         double sumPoint = 0;
         for (int j = 0; j < chromosomes.size(); j++) {
             String lineChromosome = chromosomes.get(j).getElement().toString();
             double point = new ChromosomeAlgo().getChromosomePoint(chromosomes.get(j));
             sumPoint = sumPoint + point;
-            System.out.print(CHROMOSOME + " ke " + (j + 1) + "\t: " + lineChromosome);
-            System.out.println(" -> Point = " + point);
+            fitness.add(point);
+            // ---------------------------------------------------------------------------------------------------------
+            System.out.println(CHROMOSOME + " ke " + (j + 1) + "\t: " + lineChromosome);
+            System.out.println("> Point  ke " + (j + 1) + "\t: " + point);
+            // ---------------------------------------------------------------------------------------------------------
         }
-        System.out.println(">> Total Point = " + sumPoint);
+        // -------------------------------------------------------------------------------------------------------------
+        System.out.println(LINE_VIEW);
+        System.out.println(">> Total Point Kromosom   = " + sumPoint);
+        System.out.println(">> Fitness Point Kromosom = " + getFitnessPopulation(fitness));
+        // -------------------------------------------------------------------------------------------------------------
     }
 
+    public double getFitnessPopulation(ArrayList<Double> fitness){
+        double x1 = fitness.get(0);
+        double x2 = fitness.get(1);
+        return countFitnessPoint(x1, x2);
+    }
 
-
-    public double getFitnessPoint(double x1, double x2){
+    public double countFitnessPoint(double x1, double x2){
         final double POW_2 = 2.0;
         final double POW_4 = 4.0;
 
@@ -65,6 +78,7 @@ public class ChromosomeAlgo {
         chromosome.getElement().set(randomRowChromosome, randomRowValue);
         return chromosome;
     }
+
 
     public void crossOverChromosome(Chromosome chromosome1, Chromosome chromosome2){
 

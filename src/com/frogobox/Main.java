@@ -33,11 +33,12 @@ public class Main {
         System.out.println("1 Makhluk Memiliki \t\t: " + chromosome + " " + CHROMOSOME);
         System.out.println("1 Kromosom Memiliki \t: " + gen + " " + GEN);
         System.out.println(LINE_VIEW);
+        System.out.println();
     }
 
     public static void main (String[] args) {
         PopulationAlgo populationAlgo = new PopulationAlgo();
-        programName(populationAlgo.SUM_POPULATION, populationAlgo.SUM_CHROMOSOME, populationAlgo.SUM_GEN);
+        programName(SUM_POPULATION, SUM_CHROMOSOME, SUM_GEN);
         populationAlgo.declarePopulation();
         populationAlgo.getPopulation();
     }
