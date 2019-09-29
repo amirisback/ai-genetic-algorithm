@@ -59,7 +59,7 @@ public class RegenerationAlgo implements RegenerationView {
         System.out.println("Fitness Point \t: " + parent1.getFitnessPoint());
         System.out.println(LINE_VIEW);
         System.out.println("Parent 2 : ");
-        getChromosomeSelectionParent(parent1.getElement());
+        getChromosomeSelectionParent(parent2.getElement());
         System.out.println("Fitness Point \t: " + parent2.getFitnessPoint());
         System.out.println(LINE_VIEW);
         System.out.println();

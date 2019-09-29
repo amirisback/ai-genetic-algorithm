@@ -17,6 +17,6 @@ package com.frogobox.view;
  * com.frogobox.view
  */
 public interface PopulationView {
-    void chromosomeArrangement(int order, String genChromosome, double chromosomePoint);
+    void chromosomeArrangement(int order, String genChromosome);
     void fitnessPointViewResult(double x1, double x2, double countFitnessPoint);
 }

@@ -46,7 +46,7 @@ public class ChromosomeAlgo {
             double chromosomePoint = getChromosomePoint(chromosomes.get(j));
             fitness.add(chromosomePoint);
             // ---------------------------------------------------------------------------------------------------------
-            populationView.chromosomeArrangement((j+1), genChromosome, chromosomePoint);
+            populationView.chromosomeArrangement((j+1), genChromosome);
             // ---------------------------------------------------------------------------------------------------------
         }
         // -------------------------------------------------------------------------------------------------------------

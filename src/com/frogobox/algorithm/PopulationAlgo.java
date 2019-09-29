@@ -43,6 +43,7 @@ public class PopulationAlgo extends BaseModel implements PopulationView {
     }
 
     public void showPopulationDeclare(){
+        viewTitlePopulation();
         declarePopulation();
         getPopulation();
         sortFitnessPopulation(populations);
@@ -67,12 +68,9 @@ public class PopulationAlgo extends BaseModel implements PopulationView {
     }
 
     private void getPopulation() {
-        System.out.println("Susunan Kromosom");
-        System.out.println(LINE_VIEW);
 
         for (int i = 0; i < populations.size(); i++) {
             System.out.println(POPULATION + " - " + (i + 1));
-            System.out.println(LINE_VIEW);
             new ChromosomeAlgo(this).getChromosome(populations.get(i), populations.get(i).getElement());
             System.out.println(LINE_VIEW);
         }
@@ -95,17 +93,24 @@ public class PopulationAlgo extends BaseModel implements PopulationView {
         regenerationView.selectionParent(parent1, parent2);
     }
 
+    private void viewTitlePopulation(){
+        System.out.println("Detail Populasi");
+        System.out.println(LINE_VIEW);
+        System.out.println("Formula Fitness Point : ");
+        System.out.println("(4-2*1*x1^2+x1^4/3)*x1^2 + x1*x2 + (-4+4*x2^2)*x2^2");
+        System.out.println(LINE_VIEW);
+    }
+
     @Override
-    public void chromosomeArrangement(int order, String genChromosome, double chromosomePoint) {
+    public void chromosomeArrangement(int order, String genChromosome) {
         System.out.println(CHROMOSOME + " ke " + order + "\t: " + genChromosome);
-        System.out.println("> Point  ke " + order + "\t: " + chromosomePoint);
     }
 
     @Override
     public void fitnessPointViewResult(double x1, double x2, double countFitnessPoint) {
-        System.out.println(LINE_VIEW);
-        System.out.println(">> x1 = " + x1 + ", x2 = " + x2);
-        System.out.println(">> Fitness Point Individu = " + countFitnessPoint);
+        System.out.println("Nilai x1 \t\t: " + x1);
+        System.out.println("Nilai x2 \t\t: " + x2);
+        System.out.println("Fitness Point \t: " + countFitnessPoint);
 
     }
 
