@@ -1,6 +1,7 @@
 package com.frogobox;
 
 import com.frogobox.algorithm.PopulationAlgo;
+import com.frogobox.algorithm.RegenerationAlgo;
 
 import static com.frogobox.base.BaseHelper.*;
 
@@ -24,9 +25,7 @@ public class Main {
 
     public static void main (String[] args) {
         new Main().programName();
-
-        PopulationAlgo populationAlgo = new PopulationAlgo();
-        populationAlgo.showPopulationDeclare();
+        new RegenerationAlgo();
     }
 
     private void programName() {

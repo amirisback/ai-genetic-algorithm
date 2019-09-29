@@ -5,8 +5,6 @@ import com.frogobox.model.Population;
 import com.frogobox.view.PopulationView;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -79,16 +77,6 @@ public class ChromosomeAlgo {
         double x2Pow2 = Math.pow(x2, POW_4);
 
         return (4-2*1*x1Pow2+x1Pow4/3)*x1Pow2 + x1*x2 + (-4+4*x2Pow2)*x2Pow2;
-    }
-
-    public void sortFitnessPopulation(ArrayList<Population> populations){
-        Collections.sort(populations, new Comparator<Population>() {
-            @Override
-            public int compare(Population lhs, Population rhs) {
-                // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
-                return Double.compare(rhs.getFitnessPoint(), lhs.getFitnessPoint());
-            }
-        });
     }
 
     public Chromosome mutationChromosome(Chromosome chromosome){

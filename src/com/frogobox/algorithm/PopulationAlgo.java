@@ -5,7 +5,11 @@ import com.frogobox.model.Chromosome;
 import com.frogobox.model.Population;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import com.frogobox.view.PopulationView;
+import com.frogobox.view.RegenerationView;
 
 import static com.frogobox.base.BaseHelper.*;
 
@@ -28,12 +32,22 @@ import static com.frogobox.base.BaseHelper.*;
 public class PopulationAlgo extends BaseModel implements PopulationView {
 
     private ArrayList<Population> populations = new ArrayList<>();
+    private RegenerationView regenerationView;
+
+    public PopulationAlgo(RegenerationView regenerationView) {
+        this.regenerationView = regenerationView;
+    }
+
+    public ArrayList<Population> getPopulations() {
+        return populations;
+    }
 
     public void showPopulationDeclare(){
         declarePopulation();
         getPopulation();
+        sortFitnessPopulation(populations);
+        selectParent();
     }
-
 
     // Deklarasi bahwa setiap makhluk mempunyai kromosom
     private Population initPopulation(){
@@ -65,7 +79,21 @@ public class PopulationAlgo extends BaseModel implements PopulationView {
 
     }
 
+    private void sortFitnessPopulation(ArrayList<Population> populations){
+        Collections.sort(populations, new Comparator<Population>() {
+            @Override
+            public int compare(Population lhs, Population rhs) {
+                // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
+                return Double.compare(rhs.getFitnessPoint(), lhs.getFitnessPoint());
+            }
+        });
+    }
 
+    private void selectParent(){
+        Population parent1 = populations.get(0);
+        Population parent2 = populations.get(1);
+        regenerationView.selectionParent(parent1, parent2);
+    }
 
     @Override
     public void chromosomeArrangement(int order, String genChromosome, double chromosomePoint) {
