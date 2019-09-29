@@ -57,6 +57,7 @@ public class ChromosomeAlgo {
         // -------------------------------------------------------------------------------------------------------------
     }
 
+    //Perhitungan fitness
     private double countFitnessPoint(double x1, double x2){
         final double POW_2 = 2.0;
         final double POW_4 = 4.0;

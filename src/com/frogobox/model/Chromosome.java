@@ -28,6 +28,7 @@ public class Chromosome extends BaseModel {
 
     private ArrayList<Integer> element;
 
+    // Decode Krosomom
     public Chromosome() {
         this.element = new ArrayList<>();
     }
