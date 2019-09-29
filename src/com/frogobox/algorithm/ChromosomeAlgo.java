@@ -1,12 +1,13 @@
 package com.frogobox.algorithm;
 
 import com.frogobox.model.Chromosome;
+import com.frogobox.model.Population;
+import com.frogobox.view.PopulationView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
-
-import static com.frogobox.base.BaseHelper.CHROMOSOME;
-import static com.frogobox.base.BaseHelper.LINE_VIEW;
 
 /**
  * Created by Faisal Amir
@@ -26,6 +27,12 @@ import static com.frogobox.base.BaseHelper.LINE_VIEW;
  */
 public class ChromosomeAlgo {
 
+    private PopulationView populationView;
+
+    public ChromosomeAlgo(PopulationView populationView) {
+        this.populationView = populationView;
+    }
+
     public double getChromosomePoint(Chromosome chromosome){
         int value = 0;
         for (int i = 0; i<chromosome.getElement().size(); i++) {
@@ -34,23 +41,22 @@ public class ChromosomeAlgo {
         return (double) value;
     }
 
-    public void getChromosome(ArrayList<Chromosome> chromosomes){
+    public void getChromosome(Population population, ArrayList<Chromosome> chromosomes){
         ArrayList<Double> fitness = new ArrayList<>();
         for (int j = 0; j < chromosomes.size(); j++) {
-            String lineChromosome = chromosomes.get(j).getElement().toString();
-            double point = new ChromosomeAlgo().getChromosomePoint(chromosomes.get(j));
-            fitness.add(point);
+            String genChromosome = chromosomes.get(j).getElement().toString();
+            double chromosomePoint = getChromosomePoint(chromosomes.get(j));
+            fitness.add(chromosomePoint);
             // ---------------------------------------------------------------------------------------------------------
-            System.out.println(CHROMOSOME + " ke " + (j + 1) + "\t: " + lineChromosome);
-            System.out.println("> Point  ke " + (j + 1) + "\t: " + point);
+            populationView.chromosomeArrangement((j+1), genChromosome, chromosomePoint);
             // ---------------------------------------------------------------------------------------------------------
         }
         // -------------------------------------------------------------------------------------------------------------
-        getFitnessPopulation(fitness);
+        getFitnessPopulation(population, fitness);
         // -------------------------------------------------------------------------------------------------------------
     }
 
-    public void getFitnessPopulation(ArrayList<Double> chromosomePoint){
+    public void getFitnessPopulation(Population population, ArrayList<Double> chromosomePoint){
         double x1 = 0;
         double x2 = 0;
         for (int i = 0; i<chromosomePoint.size(); i++) {
@@ -60,9 +66,8 @@ public class ChromosomeAlgo {
                 x2 = x2 + chromosomePoint.get(i);
             }
         }
-        System.out.println(LINE_VIEW);
-        System.out.println(">> x1 = " + x1 + ", x2 = " + x2);
-        System.out.println(">> Fitness Point Individu = " + countFitnessPoint(x1, x2));
+        population.setFitnessPoint(countFitnessPoint(x1,x2));
+        populationView.fitnessPointViewResult(x1, x2, countFitnessPoint(x1,x2));
     }
 
     public double countFitnessPoint(double x1, double x2){
@@ -74,6 +79,16 @@ public class ChromosomeAlgo {
         double x2Pow2 = Math.pow(x2, POW_4);
 
         return (4-2*1*x1Pow2+x1Pow4/3)*x1Pow2 + x1*x2 + (-4+4*x2Pow2)*x2Pow2;
+    }
+
+    public void sortFitnessPopulation(ArrayList<Population> populations){
+        Collections.sort(populations, new Comparator<Population>() {
+            @Override
+            public int compare(Population lhs, Population rhs) {
+                // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
+                return Double.compare(rhs.getFitnessPoint(), lhs.getFitnessPoint());
+            }
+        });
     }
 
     public Chromosome mutationChromosome(Chromosome chromosome){

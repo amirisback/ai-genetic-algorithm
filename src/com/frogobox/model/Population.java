@@ -23,9 +23,18 @@ import java.util.ArrayList;
 public class Population extends BaseModel {
 
     private ArrayList<Chromosome> element;
+    private double fitnessPoint;
 
     public Population() {
         this.element = new ArrayList<>();
+    }
+
+    public double getFitnessPoint() {
+        return fitnessPoint;
+    }
+
+    public void setFitnessPoint(double fitnessPoint) {
+        this.fitnessPoint = fitnessPoint;
     }
 
     public ArrayList<Chromosome> getElement() {

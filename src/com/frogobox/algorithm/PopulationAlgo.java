@@ -5,10 +5,7 @@ import com.frogobox.model.Chromosome;
 import com.frogobox.model.Population;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-
-import com.frogobox.base.BaseHelper;
+import com.frogobox.view.PopulationView;
 
 import static com.frogobox.base.BaseHelper.*;
 
@@ -28,7 +25,7 @@ import static com.frogobox.base.BaseHelper.*;
  * FrogoBox Software Industries
  * com.frogobox
  */
-public class PopulationAlgo extends BaseModel {
+public class PopulationAlgo extends BaseModel implements PopulationView {
 
     private ArrayList<Population> populations = new ArrayList<>();
 
@@ -49,20 +46,20 @@ public class PopulationAlgo extends BaseModel {
         }
     }
 
-    public void sort(){
-
-    }
-
     public void getPopulation() {
         System.out.println("Susunan Kromosom");
-        System.out.println(LINE_VIEW);;
+        System.out.println(LINE_VIEW);
+
         for (int i = 0; i < populations.size(); i++) {
             System.out.println(POPULATION + " - " + (i + 1));
             System.out.println(LINE_VIEW);
-            new ChromosomeAlgo().getChromosome(populations.get(i).getElement());
-            System.out.println(BaseHelper.LINE_VIEW);
+            new ChromosomeAlgo(this).getChromosome(populations.get(i), populations.get(i).getElement());
+            System.out.println(LINE_VIEW);
         }
+
     }
+
+
 
     public void selectionParent(){
 
@@ -70,7 +67,21 @@ public class PopulationAlgo extends BaseModel {
 
     public void generationReplacement() {
 
+
     }
 
+    @Override
+    public void chromosomeArrangement(int order, String genChromosome, double chromosomePoint) {
+        System.out.println(CHROMOSOME + " ke " + order + "\t: " + genChromosome);
+        System.out.println("> Point  ke " + order + "\t: " + chromosomePoint);
+    }
+
+    @Override
+    public void fitnessPointViewResult(double x1, double x2, double countFitnessPoint) {
+        System.out.println(LINE_VIEW);
+        System.out.println(">> x1 = " + x1 + ", x2 = " + x2);
+        System.out.println(">> Fitness Point Individu = " + countFitnessPoint);
+
+    }
 
 }
