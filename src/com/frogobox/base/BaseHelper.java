@@ -25,7 +25,7 @@ public class BaseHelper {
     public static final String GEN = "Gen";
     // -----------------------------------------------------------------------------------------------------------------
     public static final int SUM_POPULATION = 6;
-    public static final int SUM_GEN = 6;
+    public static final int SUM_GEN = 4;
     public static final int SUM_CHROMOSOME = 2;
     // -----------------------------------------------------------------------------------------------------------------
     public static final int RANDOM_RANGE = 2;

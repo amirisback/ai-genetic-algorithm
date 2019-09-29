@@ -36,11 +36,9 @@ public class ChromosomeAlgo {
 
     public void getChromosome(ArrayList<Chromosome> chromosomes){
         ArrayList<Double> fitness = new ArrayList<>();
-        double sumPoint = 0;
         for (int j = 0; j < chromosomes.size(); j++) {
             String lineChromosome = chromosomes.get(j).getElement().toString();
             double point = new ChromosomeAlgo().getChromosomePoint(chromosomes.get(j));
-            sumPoint = sumPoint + point;
             fitness.add(point);
             // ---------------------------------------------------------------------------------------------------------
             System.out.println(CHROMOSOME + " ke " + (j + 1) + "\t: " + lineChromosome);
@@ -48,16 +46,23 @@ public class ChromosomeAlgo {
             // ---------------------------------------------------------------------------------------------------------
         }
         // -------------------------------------------------------------------------------------------------------------
-        System.out.println(LINE_VIEW);
-        System.out.println(">> Total Point Kromosom   = " + sumPoint);
-        System.out.println(">> Fitness Point Kromosom = " + getFitnessPopulation(fitness));
+        getFitnessPopulation(fitness);
         // -------------------------------------------------------------------------------------------------------------
     }
 
-    public double getFitnessPopulation(ArrayList<Double> fitness){
-        double x1 = fitness.get(0);
-        double x2 = fitness.get(1);
-        return countFitnessPoint(x1, x2);
+    public void getFitnessPopulation(ArrayList<Double> chromosomePoint){
+        double x1 = 0;
+        double x2 = 0;
+        for (int i = 0; i<chromosomePoint.size(); i++) {
+            if (i < (chromosomePoint.size()/2)) {
+                x1 = x1 + chromosomePoint.get(i);
+            } else {
+                x2 = x2 + chromosomePoint.get(i);
+            }
+        }
+        System.out.println(LINE_VIEW);
+        System.out.println(">> x1 = " + x1 + ", x2 = " + x2);
+        System.out.println(">> Fitness Point Individu = " + countFitnessPoint(x1, x2));
     }
 
     public double countFitnessPoint(double x1, double x2){
@@ -83,17 +88,15 @@ public class ChromosomeAlgo {
     public void crossOverChromosome(Chromosome chromosome1, Chromosome chromosome2){
 
         int randomRow1 = new Random().nextInt(chromosome1.getElement().size());
-        int randomRow2 = new Random().nextInt(chromosome2.getElement().size());
-
         int randomRowChromosome1 = new Random().nextInt(chromosome1.getElement().size());
-        int randomRowChromosome2 = new Random().nextInt(chromosome2.getElement().size());
-
         int randomRowValueChromosome1 = chromosome1.getElement().get(randomRow1);
+
+        int randomRow2 = new Random().nextInt(chromosome2.getElement().size());
+        int randomRowChromosome2 = new Random().nextInt(chromosome2.getElement().size());
         int randomRowValueChromosome2 = chromosome2.getElement().get(randomRow2);
 
         chromosome1.getElement().set(randomRowChromosome2, randomRowValueChromosome2);
         chromosome2.getElement().set(randomRowChromosome1, randomRowValueChromosome1);
-
     }
 
 }

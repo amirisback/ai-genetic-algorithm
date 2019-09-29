@@ -3,6 +3,8 @@ package com.frogobox.model;
 import com.frogobox.base.BaseModel;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import static com.frogobox.base.BaseHelper.*;
 

@@ -5,6 +5,9 @@ import com.frogobox.model.Chromosome;
 import com.frogobox.model.Population;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import com.frogobox.base.BaseHelper;
 
 import static com.frogobox.base.BaseHelper.*;
@@ -46,6 +49,10 @@ public class PopulationAlgo extends BaseModel {
         }
     }
 
+    public void sort(){
+
+    }
+
     public void getPopulation() {
         System.out.println("Susunan Kromosom");
         System.out.println(LINE_VIEW);;
@@ -55,6 +62,10 @@ public class PopulationAlgo extends BaseModel {
             new ChromosomeAlgo().getChromosome(populations.get(i).getElement());
             System.out.println(BaseHelper.LINE_VIEW);
         }
+    }
+
+    public void selectionParent(){
+
     }
 
     public void generationReplacement() {

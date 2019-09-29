@@ -41,6 +41,7 @@ public class Main {
         programName(SUM_POPULATION, SUM_CHROMOSOME, SUM_GEN);
         populationAlgo.declarePopulation();
         populationAlgo.getPopulation();
+
     }
 
 }
