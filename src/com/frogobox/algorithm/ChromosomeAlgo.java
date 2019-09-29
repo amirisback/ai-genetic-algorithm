@@ -57,6 +57,17 @@ public class ChromosomeAlgo {
         // -------------------------------------------------------------------------------------------------------------
     }
 
+    private double countFitnessPoint(double x1, double x2){
+        final double POW_2 = 2.0;
+        final double POW_4 = 4.0;
+
+        double x1Pow2 = Math.pow(x1, POW_2);
+        double x1Pow4 = Math.pow(x1, POW_4);
+        double x2Pow2 = Math.pow(x2, POW_4);
+
+        return (4-2*1*x1Pow2+x1Pow4/3)*x1Pow2 + x1*x2 + (-4+4*x2Pow2)*x2Pow2;
+    }
+
     private void getFitnessPopulation(Population population, ArrayList<Double> chromosomePoint){
         double x1 = 0;
         double x2 = 0;
@@ -71,23 +82,34 @@ public class ChromosomeAlgo {
         populationView.fitnessPointViewResult(x1, x2, countFitnessPoint(x1,x2));
     }
 
-    private double countFitnessPoint(double x1, double x2){
-        final double POW_2 = 2.0;
-        final double POW_4 = 4.0;
 
-        double x1Pow2 = Math.pow(x1, POW_2);
-        double x1Pow4 = Math.pow(x1, POW_4);
-        double x2Pow2 = Math.pow(x2, POW_4);
 
-        return (4-2*1*x1Pow2+x1Pow4/3)*x1Pow2 + x1*x2 + (-4+4*x2Pow2)*x2Pow2;
-    }
+    public Population mutationChromosome(Chromosome chromosome1, Chromosome chromosome2){
+        Population population = new Population();
 
-    public Chromosome mutationChromosome(Chromosome chromosome){
-        int randomRow = new Random().nextInt(chromosome.getElement().size());
-        int randomRowValue = chromosome.getElement().get(randomRow);
-        int randomRowChromosome = new Random().nextInt(chromosome.getElement().size());
-        chromosome.getElement().set(randomRowChromosome, randomRowValue);
-        return chromosome;
+        int randomRow1 = new Random().nextInt(chromosome1.getElement().size());
+        int randomRow2 = new Random().nextInt(chromosome2.getElement().size());
+
+        int randomRowValue1 = chromosome1.getElement().get(randomRow1);
+        int randomRowValue2 = chromosome1.getElement().get(randomRow2);
+
+        int randomRowChromosome1 = new Random().nextInt(chromosome1.getElement().size());
+        int randomRowChromosome2 = new Random().nextInt(chromosome1.getElement().size());
+
+        chromosome1.getElement().set(randomRowChromosome1, randomRowValue1);
+        chromosome2.getElement().set(randomRowChromosome2, randomRowValue2);
+
+        double x1 = getChromosomePoint(chromosome1);
+        double x2 = getChromosomePoint(chromosome2);
+
+        double fitness = countFitnessPoint(x1, x2);
+
+        population.getElement().add(chromosome1);
+        population.getElement().add(chromosome2);
+        population.setFitnessPoint(fitness);
+
+        return population;
+
     }
 
 
@@ -96,12 +118,13 @@ public class ChromosomeAlgo {
         Population population = new Population();
 
         int randomRow1 = new Random().nextInt(chromosome1.getElement().size());
-        int randomRowChromosome1 = new Random().nextInt(chromosome1.getElement().size());
-        int randomRowValueChromosome1 = chromosome1.getElement().get(randomRow1);
-
         int randomRow2 = new Random().nextInt(chromosome2.getElement().size());
+
+        int randomRowChromosome1 = new Random().nextInt(chromosome1.getElement().size());
         int randomRowChromosome2 = new Random().nextInt(chromosome2.getElement().size());
-        int randomRowValueChromosome2 = chromosome2.getElement().get(randomRow2);
+
+        int randomRowValueChromosome1 = chromosome2.getElement().get(randomRow1);
+        int randomRowValueChromosome2 = chromosome1.getElement().get(randomRow2);
 
         chromosome1.getElement().set(randomRowChromosome2, randomRowValueChromosome2);
         chromosome2.getElement().set(randomRowChromosome1, randomRowValueChromosome1);

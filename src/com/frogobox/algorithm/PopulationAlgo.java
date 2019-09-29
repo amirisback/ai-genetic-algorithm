@@ -80,8 +80,6 @@ public class PopulationAlgo extends BaseModel implements PopulationView {
 
     }
 
-
-
     private void sortFitnessPopulation(ArrayList<Population> populations){
         Collections.sort(populations, new Comparator<Population>() {
             @Override
