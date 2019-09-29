@@ -29,24 +29,30 @@ public class PopulationAlgo extends BaseModel implements PopulationView {
 
     private ArrayList<Population> populations = new ArrayList<>();
 
+    public void showPopulationDeclare(){
+        declarePopulation();
+        getPopulation();
+    }
+
+
     // Deklarasi bahwa setiap makhluk mempunyai kromosom
-    public Population initPopulation(int valueGen, int valueChromosome){
+    private Population initPopulation(){
         Population population = new Population();
-        for (int i = 0; i<valueChromosome; i++) {
+        for (int i = 0; i<SUM_CHROMOSOME; i++) {
             Chromosome chromosome = new Chromosome();
-            chromosome.initElement(valueGen);
+            chromosome.initElement(SUM_GEN);
             population.getElement().add(chromosome);
         }
         return population;
     }
 
-    public void declarePopulation() {
+    private void declarePopulation() {
         for (int i = 0; i < SUM_POPULATION; i++) {
-            populations.add(initPopulation(SUM_GEN, SUM_CHROMOSOME));
+            populations.add(initPopulation());
         }
     }
 
-    public void getPopulation() {
+    private void getPopulation() {
         System.out.println("Susunan Kromosom");
         System.out.println(LINE_VIEW);
 
@@ -60,15 +66,6 @@ public class PopulationAlgo extends BaseModel implements PopulationView {
     }
 
 
-
-    public void selectionParent(){
-
-    }
-
-    public void generationReplacement() {
-
-
-    }
 
     @Override
     public void chromosomeArrangement(int order, String genChromosome, double chromosomePoint) {

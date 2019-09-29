@@ -26,21 +26,28 @@ public class Main {
         new Main().programName();
 
         PopulationAlgo populationAlgo = new PopulationAlgo();
-        populationAlgo.declarePopulation();
-        populationAlgo.getPopulation();
+        populationAlgo.showPopulationDeclare();
     }
 
     private void programName() {
-        System.out.println("..:: Algortima Genetik ::..");
         System.out.println(LINE_VIEW);
         System.out.println("Muhammad Faisal Amir");
         System.out.println("1301198497");
         System.out.println("IFX-43-02");
         System.out.println(LINE_VIEW);
-        System.out.println("Jumlah Populasi \t\t: " + SUM_POPULATION + " " + POPULATION);
-        System.out.println("1 Makhluk Memiliki \t\t: " + SUM_GEN + " " + CHROMOSOME);
-        System.out.println("1 Kromosom Memiliki \t: " + SUM_CHROMOSOME + " " + GEN);
+        System.out.println("..:: Algortima Genetik ::..");
         System.out.println(LINE_VIEW);
+        System.out.println("Diketahui : ");
+        System.out.println("Jumlah Populasi \t\t: " + SUM_POPULATION + " " + POPULATION);
+        System.out.println("1 Makhluk Memiliki \t\t: " + SUM_CHROMOSOME  + " " + CHROMOSOME);
+        System.out.println("1 Kromosom Memiliki \t: " + SUM_GEN + " " + GEN);
+        System.out.println(LINE_VIEW);
+        System.out.println("Ditanya : ");
+        System.out.println("1. Kromosom Terbaik ?");
+        System.out.println("2. Nilai x1, x2 ?" );
+        System.out.println("3. Decode Kromosom Terbaik ?");
+        System.out.println(LINE_VIEW);
+        System.out.println("Solusi : ");
         System.out.println();
     }
 }
