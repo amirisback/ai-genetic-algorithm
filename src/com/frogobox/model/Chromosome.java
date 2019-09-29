@@ -42,7 +42,7 @@ public class Chromosome extends BaseModel {
     // Setiap kromomosom dibatasi panjangnya
     public void initElement(int value){
         for (int i = 0; i<value; i++){
-            element.add((int) randomNumber(RANDOM_RANGE_MIN, RANDOM_RANGE_MAX));
+            element.add((int) randomNumber(RANDOM_RANGE));
         }
     }
 }

@@ -32,10 +32,13 @@ import static com.frogobox.base.BaseHelper.*;
 public class PopulationAlgo extends BaseModel implements PopulationView {
 
     private ArrayList<Population> populations = new ArrayList<>();
+    private ChromosomeAlgo chromosomeAlgo;
     private RegenerationView regenerationView;
 
     public PopulationAlgo(RegenerationView regenerationView) {
+        this.chromosomeAlgo = new ChromosomeAlgo();
         this.regenerationView = regenerationView;
+        chromosomeAlgo.setPopulationView(this);
     }
 
     public ArrayList<Population> getPopulations() {
@@ -71,11 +74,13 @@ public class PopulationAlgo extends BaseModel implements PopulationView {
 
         for (int i = 0; i < populations.size(); i++) {
             System.out.println(POPULATION + " - " + (i + 1));
-            new ChromosomeAlgo(this).getChromosome(populations.get(i), populations.get(i).getElement());
+            chromosomeAlgo.getChromosome(populations.get(i), populations.get(i).getElement());
             System.out.println(LINE_VIEW);
         }
 
     }
+
+
 
     private void sortFitnessPopulation(ArrayList<Population> populations){
         Collections.sort(populations, new Comparator<Population>() {

@@ -26,6 +26,7 @@ import static com.frogobox.base.BaseHelper.*;
  */
 public class RegenerationAlgo implements RegenerationView {
 
+    private ArrayList<Population> newPopulation = new ArrayList<>();
     private PopulationAlgo populationAlgo;
 
     public RegenerationAlgo() {
@@ -33,7 +34,7 @@ public class RegenerationAlgo implements RegenerationView {
         populationAlgo.showPopulationDeclare();
     }
 
-    public void getChromosomeSelectionParent(ArrayList<Chromosome> chromosomes){
+    private void getChromosomeSelectionParent(ArrayList<Chromosome> chromosomes){
         for (int j = 0; j < chromosomes.size(); j++) {
             String genChromosome = chromosomes.get(j).getElement().toString();
             System.out.println(CHROMOSOME + " ke " + (j+1) + "\t: " + genChromosome);
@@ -41,6 +42,25 @@ public class RegenerationAlgo implements RegenerationView {
     }
 
     public void steadyState(){
+        int pointChromosome1 = 0;
+        int pointChromosome2 = 0;
+
+        Population parent1 = populationAlgo.getPopulations().get(randomNumber(SUM_POPULATION));
+        Population parent2 = populationAlgo.getPopulations().get(randomNumber(SUM_POPULATION));
+
+        Chromosome chromosomeParent1 = parent2.getElement().get(randomNumber(SUM_CHROMOSOME));
+        Chromosome chromosomeParent2 = parent1.getElement().get(randomNumber(SUM_CHROMOSOME));
+
+        for (int i = 0; i<SUM_GEN; i++){
+            pointChromosome1 = pointChromosome1 + chromosomeParent1.getElement().get(i);
+            pointChromosome2 = pointChromosome2 + chromosomeParent2.getElement().get(i);
+        }
+
+        while (pointChromosome1 == X_MAX) {
+            new ChromosomeAlgo().crossOverChromosome(chromosomeParent1, chromosomeParent2);
+
+        }
+
 
     }
 
