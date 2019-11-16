@@ -26,7 +26,7 @@ public class Main {
     public static void main(String[] args) {
         new Main().programName();
         new RegenerationAlgo().steadyState();
-        new FileCrud().outputMain("NARUDIO");
+        new FileCrud().outputMain("Hasil-Algoritma");
     }
 
     private void programName() {
