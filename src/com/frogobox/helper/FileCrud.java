@@ -28,6 +28,7 @@ public class FileCrud {
 
     private final static String EXTENSION_TXT = ".txt";
     private final static String PATH_OUTPUT_DATA = "result";
+    private final static String PATH_ROOT_PROJECT = "Folder Output : [root_project]/";
 
     private String dateNow = new Constant().getDateNow();
 
@@ -63,7 +64,7 @@ public class FileCrud {
             }
             fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("Amir");
+            bufferedWriter.write(PATH_ROOT_PROJECT + getPathOutputFolder(fileName));
             bufferedWriter.newLine();
 
         } catch (IOException e) {
