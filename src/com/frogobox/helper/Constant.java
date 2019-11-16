@@ -21,6 +21,21 @@ import java.util.Date;
  */
 public class Constant {
 
+    public Constant() {
+    }
+
+    public static final class Variable {
+        public static String PATH_RAW_CSV_DATA_UJI_OPSI_1 = "src/com/frogobox/raw/test/data_uji_opsi_1.csv";
+        public static String PATH_RAW_CSV_DATA_UJI_OPSI_2 = "src/com/frogobox/raw/test/data_uji_opsi_2.csv";
+
+        public static String PATH_RAW_CSV_DATA_LATIH_OPSI_1 = "src/com/frogobox/raw/practice/data_latih_opsi_1.csv";
+        public static String PATH_RAW_CSV_DATA_LATIH_OPSI_2 = "src/com/frogobox/raw/practice/data_latih_opsi_2.csv";
+
+        public static String PATH_RAW_CSV_TARGET_LATIH_OPSI_1 = "src/com/frogobox/raw/target/target_latih_opsi_2.csv";
+        public static String PATH_RAW_CSV_TARGET_LATIH_OPSI_2 = "src/com/frogobox/raw/target/target_latih_opsi_2.csv";
+    }
+
+
     public String getDateNow(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         return simpleDateFormat.format(new Date());

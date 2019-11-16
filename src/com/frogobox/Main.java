@@ -1,9 +1,17 @@
 package com.frogobox;
 
 import com.frogobox.algorithm.RegenerationAlgo;
+import com.frogobox.helper.Constant;
 import com.frogobox.helper.FileCrud;
+import com.frogobox.helper.RawHelper;
+import com.frogobox.model.Practice;
+import com.frogobox.model.Test;
+
+import java.util.ArrayList;
 
 import static com.frogobox.base.BaseHelper.*;
+import static com.frogobox.helper.Constant.Variable.PATH_RAW_CSV_DATA_UJI_OPSI_1;
+import static com.frogobox.helper.Constant.Variable.PATH_RAW_CSV_DATA_UJI_OPSI_2;
 
 /**
  * Created by Faisal Amir
@@ -26,7 +34,6 @@ public class Main {
     public static void main(String[] args) {
         new Main().programName();
         new RegenerationAlgo().steadyState();
-        new FileCrud().outputMain("Hasil-Algoritma");
     }
 
     private void programName() {

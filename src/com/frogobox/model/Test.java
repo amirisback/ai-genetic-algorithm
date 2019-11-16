@@ -22,14 +22,12 @@ public class Test {
     private String time;
     private String weather;
     private String humidity;
-    private String result;
 
-    public Test(String temperature, String time, String weather, String humidity, String result) {
+    public Test(String temperature, String time, String weather, String humidity) {
         this.temperature = temperature;
         this.time = time;
         this.weather = weather;
         this.humidity = humidity;
-        this.result = result;
     }
 
     public String getTemperature() {
@@ -62,13 +60,5 @@ public class Test {
 
     public void setHumidity(String humidity) {
         this.humidity = humidity;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
     }
 }

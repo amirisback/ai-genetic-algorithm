@@ -1,9 +1,11 @@
 package com.frogobox.helper;
 
+import com.frogobox.model.Practice;
 import com.frogobox.model.Test;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Faisal Amir
@@ -23,26 +25,45 @@ import java.util.ArrayList;
  */
 public class RawHelper {
 
-    private ArrayList<Test> preLoadRaw(String sourceRaw) {
-        int count = 0;
-        String line;
-        ArrayList<Test> mTest = new ArrayList<>();
-
+    public ArrayList<Test> fetchTestData(String sourceRaw) {
+        ArrayList<Test> testArrayList = new ArrayList<>();
+        BufferedReader reader;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(new File(sourceRaw)));
-
-            do {
-                line = reader.readLine();
-                String[] splitstr = line.split("\t");
-                Test mmTest = new Test(splitstr[0], splitstr[1], splitstr[2], splitstr[3], splitstr[4]);
-                mTest.add(mmTest);
-                count++;
-            } while (true);
-
+            reader = new BufferedReader(new FileReader(sourceRaw));
+            String column;
+            while ((column = reader.readLine()) != null) {
+                String[] splitString = column.split(",");
+                ArrayList<String> arrayTemp = new ArrayList<>();
+                Collections.addAll(arrayTemp, splitString);
+                Test mTest = new Test(arrayTemp.get(0), arrayTemp.get(1), arrayTemp.get(2), arrayTemp.get(3));
+                testArrayList.add(mTest);
+            }
+            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return mTest;
+        return testArrayList;
     }
+
+    public ArrayList<Practice> fetchPracticeData(String sourceRaw) {
+        ArrayList<Practice> practiceArrayList = new ArrayList<>();
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(sourceRaw));
+            String column;
+            while ((column = reader.readLine()) != null) {
+                String[] splitString = column.split(",");
+                ArrayList<String> arrayTemp = new ArrayList<>();
+                Collections.addAll(arrayTemp, splitString);
+                Practice mPractice = new Practice(arrayTemp.get(0), arrayTemp.get(1), arrayTemp.get(2), arrayTemp.get(3), arrayTemp.get(4));
+                practiceArrayList.add(mPractice);
+            }
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return practiceArrayList;
+    }
+
 
 }
