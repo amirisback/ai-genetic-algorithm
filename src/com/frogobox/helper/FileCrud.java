@@ -22,15 +22,22 @@ import java.io.IOException;
  * FrogoBox Software Industries
  * com.frogobox.helper
  */
-public class FileReader {
+public class FileCrud {
 
     // Deklarasi data path hasil program -------------------------------------------------------------------------------
+
+    private final static String EXTENSION_TXT = ".txt";
     private final static String PATH_OUTPUT_DATA = "result";
-    private final static String PATH_FILE_NAME = "";
+
+    private String dateNow = new Constant().getDateNow();
+
+    private String PATH_FILE_TIME = "#" + dateNow + EXTENSION_TXT;
+
+
     // -----------------------------------------------------------------------------------------------------------------
 
     private String getPathOutputFolder(String fileName){
-        return PATH_OUTPUT_DATA + "/" + fileName +".txt";
+        return PATH_OUTPUT_DATA + "/" + fileName + PATH_FILE_TIME;
     }
 
     public void createFolderOutPut(){
@@ -71,6 +78,11 @@ public class FileReader {
             }
         }
 
+    }
+
+    public void outputMain(String fileName){
+        createFolderOutPut();
+        createFileTxt(fileName);
     }
 
 }
