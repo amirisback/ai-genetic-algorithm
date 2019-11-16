@@ -1,6 +1,5 @@
 package com.frogobox;
 
-import com.frogobox.algorithm.PopulationAlgo;
 import com.frogobox.algorithm.RegenerationAlgo;
 
 import static com.frogobox.base.BaseHelper.*;
@@ -23,7 +22,7 @@ import static com.frogobox.base.BaseHelper.*;
  */
 public class Main {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         new Main().programName();
         new RegenerationAlgo().steadyState();
     }
@@ -38,12 +37,12 @@ public class Main {
         System.out.println(LINE_VIEW);
         System.out.println("Diketahui : ");
         System.out.println("Jumlah Populasi \t\t: " + SUM_POPULATION + " " + POPULATION);
-        System.out.println("1 Makhluk Memiliki \t\t: " + SUM_CHROMOSOME  + " " + CHROMOSOME);
+        System.out.println("1 Makhluk Memiliki \t\t: " + SUM_CHROMOSOME + " " + CHROMOSOME);
         System.out.println("1 Kromosom Memiliki \t: " + SUM_GEN + " " + GEN);
         System.out.println(LINE_VIEW);
         System.out.println("Ditanya : ");
         System.out.println("1. Kromosom Terbaik ?");
-        System.out.println("2. Nilai x1, x2 ?" );
+        System.out.println("2. Nilai x1, x2 ?");
         System.out.println("3. Decode Kromosom Terbaik ?");
         System.out.println(LINE_VIEW);
         System.out.println("Solusi : ");

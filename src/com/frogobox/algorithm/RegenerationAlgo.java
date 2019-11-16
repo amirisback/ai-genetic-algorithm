@@ -84,6 +84,7 @@ public class RegenerationAlgo implements RegenerationView {
 
         } while (checkerPointChromosome1 < X_MAX && checkerPointChromosome2 < X_MAX) ;
 
+        // Best Result CrossOver
         int pointBestCrossover = 0;
         System.out.println("Generasi ke \t: "+ (i+1) + " (Best Fitness Point) - Crossover");
         getChromosomeSelectionParent(newPopulationGeneration.get(i).getElement());
@@ -96,12 +97,6 @@ public class RegenerationAlgo implements RegenerationView {
         }
         System.out.println("Fitness Point \t: " + newPopulationGeneration.get(i).getFitnessPoint());
         System.out.println(LINE_VIEW);
-
-
-
-
-
-
 
     }
 
