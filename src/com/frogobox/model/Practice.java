@@ -18,26 +18,16 @@ package com.frogobox.model;
  */
 public class Practice {
 
-    private int id;
     private String temperature;
     private String time;
     private String weather;
     private String humidity;
 
-    public Practice(int id, String temperature, String time, String weather, String humidity) {
-        this.id = id;
+    public Practice(String temperature, String time, String weather, String humidity) {
         this.temperature = temperature;
         this.time = time;
         this.weather = weather;
         this.humidity = humidity;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTemperature() {
