@@ -1,6 +1,9 @@
 package com.frogobox;
 
 import com.frogobox.algorithm.RegenerationAlgo;
+import com.frogobox.helper.FileReader;
+
+import java.io.File;
 
 import static com.frogobox.base.BaseHelper.*;
 
@@ -47,5 +50,9 @@ public class Main {
         System.out.println(LINE_VIEW);
         System.out.println("Solusi : ");
         System.out.println();
+
+
+
+
     }
 }
