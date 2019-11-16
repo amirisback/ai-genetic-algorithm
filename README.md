@@ -8,7 +8,7 @@ Implemented artificial intelligence genetic algorithm
 - Decision Tree
 
 # Screen Shoot Apps
-![ScreenShoot Apps](documentation/ss_main.png?raw=true)
+![ScreenShoot Apps](docs/ss_main.png?raw=true)
 
 # Attention !!!
 Please enjoy and don't forget fork and give a star
