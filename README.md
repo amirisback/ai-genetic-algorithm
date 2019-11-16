@@ -1,5 +1,11 @@
-# artificial-intelligence-genetic-algorithm
+# Artificial-intelligence-genetic-algorithm
 Implemented artificial intelligence genetic algorithm
+
+# Whats on this project
+- Using IntelliJ Jetbrains IDE
+- Using Java for programming
+- Genetic Algorithm
+- Decision Tree
 
 # Screen Shoot Apps
 ![ScreenShoot Apps](documentation/ss_main.png?raw=true)
