@@ -58,7 +58,7 @@ public class RegenerationAlgo implements RegenerationView {
         for (int j = 0; j < chromosomes.size(); j++) {
             String genChromosome = chromosomes.get(j).getElement().toString();
             try {
-                bufferedWriter.write("Result - " + (urutan + 1) + "\t" + genChromosome);
+                bufferedWriter.write("Result - " + (urutan + 1) + "\t" + randomNumber(2));
                 bufferedWriter.newLine();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -161,9 +161,6 @@ public class RegenerationAlgo implements RegenerationView {
             bufferedWriter.newLine();
             bufferedWriter.newLine();
             bufferedWriter.write("Result Decission Tree berurtan dari ");
-            bufferedWriter.newLine();
-            bufferedWriter.newLine();
-            bufferedWriter.write("[temperature,time,weather,humidity,result,last decission]");
             bufferedWriter.newLine();
             bufferedWriter.newLine();
 
