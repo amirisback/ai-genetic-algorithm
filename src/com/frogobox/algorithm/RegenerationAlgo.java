@@ -102,6 +102,23 @@ public class RegenerationAlgo implements RegenerationView {
 
     public void generationReplacement() {
 
+        ArrayList<Population> populations = new PopulationAlgo(this).getPopulations();
+        ArrayList<Population> mutationPopulation = new ArrayList<>();
+
+        for (Population population : populations) {
+            Population populationMutate;
+            for (int j = 0; j < population.getElement().size(); j = j + 2) {
+                Chromosome chromosome1 = population.getElement().get(j);
+                Chromosome chromosome2 = population.getElement().get(j + 1);
+                populationMutate = new ChromosomeAlgo().mutationChromosome(chromosome1, chromosome2);
+                mutationPopulation.add(populationMutate);
+            }
+        }
+
+
+
+
+
     }
 
 

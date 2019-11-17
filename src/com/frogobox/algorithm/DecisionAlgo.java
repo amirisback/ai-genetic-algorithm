@@ -19,6 +19,8 @@ package com.frogobox.algorithm;
 public class DecisionAlgo {
 
     public DecisionAlgo() {
+
+
     }
 
 

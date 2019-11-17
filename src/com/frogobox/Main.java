@@ -1,10 +1,6 @@
 package com.frogobox;
 
-import com.frogobox.algorithm.DecisionAlgo;
-import com.frogobox.algorithm.FetchDataAlgo;
 import com.frogobox.algorithm.RegenerationAlgo;
-import com.frogobox.helper.FileCrudHelper;
-import com.frogobox.helper.RawDataHelper;
 
 import static com.frogobox.base.BaseHelper.*;
 
@@ -27,17 +23,34 @@ import static com.frogobox.base.BaseHelper.*;
 public class Main {
 
     public static void main(String[] args) {
-        new Main().programName();
-        new RegenerationAlgo().steadyState();
-        new FetchDataAlgo().showFetchDataOne();
+        new Main().programCreator();
+        new Main().programGeneticAlgorithm();
+        new Main().programDecissionTree();
+
     }
 
-    private void programName() {
+    private void programCreator(){
         System.out.println(LINE_VIEW);
         System.out.println("Muhammad Faisal Amir");
         System.out.println("1301198497");
         System.out.println("IFX-43-02");
         System.out.println(LINE_VIEW);
+    }
+
+    private void programDecissionTree(){
+        System.out.println("..:: Decission Tree ::..");
+        System.out.println(LINE_VIEW);
+        System.out.println("Ditanya : ");
+        System.out.println("1. Kromosom Terbaik");
+        System.out.println("2. Hasil Rule Decission Tree");
+        System.out.println(LINE_VIEW);
+        System.out.println("Solusi : ");
+        System.out.println();
+        // -------------------------------------------------------------------------------------------------------------
+        // Logic Here
+    }
+
+    private void programGeneticAlgorithm() {
         System.out.println("..:: Algortima Genetik ::..");
         System.out.println(LINE_VIEW);
         System.out.println("Diketahui : ");
@@ -52,5 +65,9 @@ public class Main {
         System.out.println(LINE_VIEW);
         System.out.println("Solusi : ");
         System.out.println();
+        // -------------------------------------------------------------------------------------------------------------
+        // Logic Here
+        new RegenerationAlgo().steadyState();
+        System.out.println(LINE_VIEW);
     }
 }
