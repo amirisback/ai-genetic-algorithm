@@ -25,6 +25,21 @@ import java.util.Collections;
  */
 public class RawDataHelper {
 
+    public int getSumFetchDataInLine(String sourceRaw) {
+        int sum = 0;
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(sourceRaw));
+            String column = reader.readLine();
+            String[] splitString = column.split(",");
+            sum = splitString.length;
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sum;
+    }
+
     public ArrayList<Test> fetchTestData(String sourceRaw) {
         ArrayList<Test> testArrayList = new ArrayList<>();
         BufferedReader reader;
