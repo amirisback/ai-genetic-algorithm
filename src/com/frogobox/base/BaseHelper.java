@@ -55,10 +55,10 @@ public class BaseHelper {
     // -----------------------------------------------------------------------------------------------------------------
     // Setting
     public static final int SUM_POPULATION = new FetchDataAlgo().getDataSetPracticeTwo().size();
-    public static final int SUM_GEN = new RawDataHelper().getSumFetchDataInLine(PATH_RAW_CSV_DATA_LATIH_OPSI_2);
+    public static final int SUM_GEN = new RawDataHelper().getSumFetchDataInLine(PATH_RAW_CSV_DATA_LATIH_OPSI_2) + 1;
     public static final int SUM_CHROMOSOME = 2;
     // -----------------------------------------------------------------------------------------------------------------
-    public static final int RANDOM_RANGE = 2;
+    public static final int RANDOM_RANGE = 4;
     public static final int RANDOM_RANGE_MIN = -2;
     public static final int RANDOM_RANGE_MAX = 2;
     // -----------------------------------------------------------------------------------------------------------------

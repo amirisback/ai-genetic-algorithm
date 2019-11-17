@@ -139,4 +139,21 @@ public class FetchDataAlgo {
         System.out.println();
     }
 
+    public void showAllFetchData(){
+        showFetchDataOne();
+        showFetchDataTwo();
+    }
+
+    public void showFetchDataOne(){
+        showDataSetPracticeOne();
+        showDataSetTestOne();
+        showDataSetTargetOne();
+    }
+
+    public void showFetchDataTwo(){
+        showDataSetTargetTwo();
+        showDataSetPracticeTwo();
+        showDataSetTargetTwo();
+    }
+
 }

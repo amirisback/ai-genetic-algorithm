@@ -1,5 +1,6 @@
 package com.frogobox;
 
+import com.frogobox.algorithm.DecisionAlgo;
 import com.frogobox.algorithm.FetchDataAlgo;
 import com.frogobox.algorithm.RegenerationAlgo;
 import com.frogobox.helper.FileCrudHelper;
@@ -28,6 +29,7 @@ public class Main {
     public static void main(String[] args) {
         new Main().programName();
         new RegenerationAlgo().steadyState();
+        new FetchDataAlgo().showFetchDataOne();
     }
 
     private void programName() {
