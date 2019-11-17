@@ -1,5 +1,6 @@
 package com.frogobox;
 
+import com.frogobox.algorithm.FetchDataAlgo;
 import com.frogobox.algorithm.RegenerationAlgo;
 
 import static com.frogobox.base.BaseHelper.*;
@@ -25,6 +26,7 @@ public class Main {
     public static void main(String[] args) {
         new Main().programName();
         new RegenerationAlgo().steadyState();
+        new FetchDataAlgo().showDataSetTargetOne();
     }
 
     private void programName() {

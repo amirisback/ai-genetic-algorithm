@@ -90,4 +90,52 @@ public class FetchDataAlgo {
     public void setDataSetTargetTwo(ArrayList<String> dataSetTargetTwo) {
         this.dataSetTargetTwo = dataSetTargetTwo;
     }
+
+    public void showDataSetTestOne() {
+        System.out.println("Raw data from data_uji_opsi_1");
+        for (int i = 0; i < dataSetTestOne.size(); i++) {
+            System.out.println(dataSetTestOne.get(i).toString());
+        }
+        System.out.println();
+    }
+
+    public void showDataSetTestTwo() {
+        System.out.println("Raw data from data_uji_opsi_2");
+        for (int i = 0; i < dataSetTestTwo.size(); i++) {
+            System.out.println(dataSetTestTwo.get(i).toString());
+        }
+    }
+
+    public void showDataSetPracticeOne() {
+        System.out.println("Raw data from data_latih_opsi_1");
+        for (int i = 0; i < dataSetPracticeOne.size(); i++) {
+            System.out.println(dataSetPracticeOne.get(i).toString());
+        }
+        System.out.println();
+    }
+
+    public void showDataSetPracticeTwo() {
+        System.out.println("Raw data from data_latih_opsi_2");
+        for (int i = 0; i < dataSetPracticeTwo.size(); i++) {
+            System.out.println(dataSetPracticeTwo.get(i).toString());
+        }
+        System.out.println();
+    }
+
+    public void showDataSetTargetOne() {
+        System.out.println("Raw data from target_latih_opsi_1");
+        for (int i = 0; i < dataSetTargetOne.size(); i++) {
+            System.out.println("Result : " + dataSetTargetOne.get(i));
+        }
+        System.out.println();
+    }
+
+    public void showDataSetTargetTwo() {
+        System.out.println("Raw data from target_latih_opsi_1");
+        for (int i = 0; i < dataSetTargetTwo.size(); i++) {
+            System.out.println("Result : " + dataSetTargetTwo.get(i));
+        }
+        System.out.println();
+    }
+
 }

@@ -71,4 +71,9 @@ public class Practice {
     public void setResult(String result) {
         this.result = result;
     }
+
+    @Override
+    public String toString() {
+        return "Data Latih {temperature : " + temperature + ",\t time : " + time + ",\t weather : " + weather + ",\t humidity : " + humidity + ",\t result : " + result + "}";
+    }
 }

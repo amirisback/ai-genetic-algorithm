@@ -61,4 +61,10 @@ public class Test {
     public void setHumidity(String humidity) {
         this.humidity = humidity;
     }
+
+
+    @Override
+    public String toString() {
+        return "Data Uji {temperature : " + temperature + ",\t time : " + time + ",\t weather : " + weather + ",\t humidity : " + humidity + "}";
+    }
 }
