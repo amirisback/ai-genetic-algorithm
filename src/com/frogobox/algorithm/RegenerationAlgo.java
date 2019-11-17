@@ -106,11 +106,7 @@ public class RegenerationAlgo implements RegenerationView {
 
     }
 
-    private void generationReplacement() {
-
-        System.out.println("Hasil Mutasi");
-        System.out.println(LINE_VIEW);
-
+    public void createMutation(){
         for (Population population : populationAlgo.getPopulations()) {
             Population populationMutate;
             for (int j = 0; j < population.getElement().size(); j = j + 2) {
@@ -120,6 +116,14 @@ public class RegenerationAlgo implements RegenerationView {
                 mutationPopulation.add(populationMutate);
             }
         }
+    }
+
+    private void generationReplacement() {
+
+        System.out.println("Hasil Mutasi");
+        System.out.println(LINE_VIEW);
+
+        createMutation();
 
         int j = 0;
         for (int i = 0; i < mutationPopulation.size(); i=i+4) {
@@ -151,4 +155,7 @@ public class RegenerationAlgo implements RegenerationView {
         System.out.println(LINE_VIEW);
         System.out.println();
     }
+
+
+
 }

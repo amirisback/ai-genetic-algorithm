@@ -1,6 +1,8 @@
 package com.frogobox;
 
+import com.frogobox.algorithm.DecisionAlgo;
 import com.frogobox.algorithm.RegenerationAlgo;
+import com.frogobox.base.BaseHelper;
 
 import static com.frogobox.base.BaseHelper.*;
 
@@ -22,9 +24,11 @@ import static com.frogobox.base.BaseHelper.*;
  */
 public class Main {
 
+    private static final String FILENAME = "Hasil-Decission-Tree";
+
     public static void main(String[] args) {
         new Main().programCreator();
-//        new Main().programGeneticAlgorithm();
+        new Main().programGeneticAlgorithm();
         new Main().programDecissionTree();
 
     }
@@ -50,6 +54,7 @@ public class Main {
         System.out.println();
         // -------------------------------------------------------------------------------------------------------------
         // Logic Here
+        System.out.println(PATH_ROOT_PROJECT + new BaseHelper().getPathOutputFolder(FILENAME));
     }
 
     private void programGeneticAlgorithm() {
