@@ -160,7 +160,7 @@ public class RegenerationAlgo implements RegenerationView {
             bufferedWriter.write(PATH_ROOT_PROJECT + new BaseHelper().getPathOutputFolder(FILENAME));
             bufferedWriter.newLine();
             bufferedWriter.newLine();
-            bufferedWriter.write("Result Decission Tree berurtan dari ");
+            bufferedWriter.write("Result Prediction Decission Tree berurtan dari ");
             bufferedWriter.newLine();
             bufferedWriter.newLine();
 
