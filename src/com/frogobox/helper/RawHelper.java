@@ -65,5 +65,20 @@ public class RawHelper {
         return practiceArrayList;
     }
 
+    public ArrayList<String> fetchTargetData(String sourceRaw) {
+        ArrayList<String> practiceString = new ArrayList<>();
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(sourceRaw));
+            String column;
+            while ((column = reader.readLine()) != null) {
+                practiceString.add(column);
+            }
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return practiceString;
+    }
 
 }
