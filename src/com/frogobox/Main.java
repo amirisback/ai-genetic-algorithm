@@ -24,7 +24,7 @@ public class Main {
 
     public static void main(String[] args) {
         new Main().programCreator();
-        new Main().programGeneticAlgorithm();
+//        new Main().programGeneticAlgorithm();
         new Main().programDecissionTree();
 
     }
@@ -35,9 +35,11 @@ public class Main {
         System.out.println("1301198497");
         System.out.println("IFX-43-02");
         System.out.println(LINE_VIEW);
+        System.out.println();
     }
 
     private void programDecissionTree(){
+        System.out.println(LINE_VIEW);
         System.out.println("..:: Decission Tree ::..");
         System.out.println(LINE_VIEW);
         System.out.println("Ditanya : ");
@@ -51,6 +53,7 @@ public class Main {
     }
 
     private void programGeneticAlgorithm() {
+        System.out.println(LINE_VIEW);
         System.out.println("..:: Algortima Genetik ::..");
         System.out.println(LINE_VIEW);
         System.out.println("Diketahui : ");
@@ -67,7 +70,7 @@ public class Main {
         System.out.println();
         // -------------------------------------------------------------------------------------------------------------
         // Logic Here
-        new RegenerationAlgo().steadyState();
-        System.out.println(LINE_VIEW);
+        new RegenerationAlgo().startGeneticAlgorithm();
+        System.out.println();
     }
 }

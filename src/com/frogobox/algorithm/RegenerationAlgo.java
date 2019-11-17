@@ -28,20 +28,26 @@ public class RegenerationAlgo implements RegenerationView {
 
     private ArrayList<Population> newPopulationGeneration = new ArrayList<>();
     private PopulationAlgo populationAlgo;
+    private ArrayList<Population> mutationPopulation = new ArrayList<>();
 
     public RegenerationAlgo() {
         populationAlgo = new PopulationAlgo(this);
-        populationAlgo.showPopulationDeclare();
     }
 
-    private void getChromosomeSelectionParent(ArrayList<Chromosome> chromosomes){
+    public void startGeneticAlgorithm(){
+        populationAlgo.showPopulationDeclare();
+        steadyState();
+        generationReplacement();
+    }
+
+    private void getChromosomeLine(ArrayList<Chromosome> chromosomes){
         for (int j = 0; j < chromosomes.size(); j++) {
             String genChromosome = chromosomes.get(j).getElement().toString();
             System.out.println(CHROMOSOME + " ke " + (j+1) + "\t: " + genChromosome);
         }
     }
 
-    public void steadyState(){
+    private void steadyState(){
 
         int i = 0;
         int checkerPointChromosome1 = 0;
@@ -72,7 +78,7 @@ public class RegenerationAlgo implements RegenerationView {
             }
 
             System.out.println("Generasi ke \t: "+ (i+1));
-            getChromosomeSelectionParent(newPopulationGeneration.get(i).getElement());
+            getChromosomeLine(newPopulationGeneration.get(i).getElement());
             System.out.println("x1 \t\t\t\t: " +pointChromosome1);
             System.out.println("x2 \t\t\t\t: " +pointChromosome2);
             System.out.println("Fitness Point \t: " + newPopulationGeneration.get(i).getFitnessPoint());
@@ -87,7 +93,7 @@ public class RegenerationAlgo implements RegenerationView {
         // Best Result CrossOver
         int pointBestCrossover = 0;
         System.out.println("Generasi ke \t: "+ (i+1) + " (Best Fitness Point) - Crossover");
-        getChromosomeSelectionParent(newPopulationGeneration.get(i).getElement());
+        getChromosomeLine(newPopulationGeneration.get(i).getElement());
         for (int j=0; j<SUM_CHROMOSOME; j++){
             for (int k=0; k<SUM_GEN; k++){
                 pointBestCrossover = pointBestCrossover + newPopulationGeneration.get(i).getElement().get(j).getElement().get(0);
@@ -100,12 +106,12 @@ public class RegenerationAlgo implements RegenerationView {
 
     }
 
-    public void generationReplacement() {
+    private void generationReplacement() {
 
-        ArrayList<Population> populations = new PopulationAlgo(this).getPopulations();
-        ArrayList<Population> mutationPopulation = new ArrayList<>();
+        System.out.println("Hasil Mutasi");
+        System.out.println(LINE_VIEW);
 
-        for (Population population : populations) {
+        for (Population population : populationAlgo.getPopulations()) {
             Population populationMutate;
             for (int j = 0; j < population.getElement().size(); j = j + 2) {
                 Chromosome chromosome1 = population.getElement().get(j);
@@ -115,12 +121,20 @@ public class RegenerationAlgo implements RegenerationView {
             }
         }
 
-
-
-
+        int j = 0;
+        for (int i = 0; i < mutationPopulation.size(); i=i+4) {
+            System.out.println("Mutasi ke makhluk ke - " + (j+1));
+            getChromosomeLine(mutationPopulation.get(j+1).getElement());
+            System.out.println("Fitness Point \t: " + mutationPopulation.get(j+1).getFitnessPoint());
+            System.out.println(LINE_VIEW);
+            j++;
+        }
 
     }
 
+    public ArrayList<Population> getMutationPopulation() {
+        return mutationPopulation;
+    }
 
     @Override
     public void selectionParent(Population parent1, Population parent2) {
@@ -128,11 +142,11 @@ public class RegenerationAlgo implements RegenerationView {
         System.out.println("Hasil Seleksi Orang Tua");
         System.out.println(LINE_VIEW);
         System.out.println("Parent 1 : ");
-        getChromosomeSelectionParent(parent1.getElement());
+        getChromosomeLine(parent1.getElement());
         System.out.println("Fitness Point \t: " + parent1.getFitnessPoint());
         System.out.println(LINE_VIEW);
         System.out.println("Parent 2 : ");
-        getChromosomeSelectionParent(parent2.getElement());
+        getChromosomeLine(parent2.getElement());
         System.out.println("Fitness Point \t: " + parent2.getFitnessPoint());
         System.out.println(LINE_VIEW);
         System.out.println();
