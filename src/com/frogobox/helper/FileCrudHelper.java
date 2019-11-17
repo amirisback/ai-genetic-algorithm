@@ -1,10 +1,15 @@
 package com.frogobox.helper;
 
+import com.frogobox.base.BaseHelper;
+
 import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import static com.frogobox.base.BaseHelper.PATH_OUTPUT_DATA;
+import static com.frogobox.base.BaseHelper.PATH_ROOT_PROJECT;
 
 /**
  * Created by Faisal Amir
@@ -22,24 +27,7 @@ import java.io.IOException;
  * FrogoBox Software Industries
  * com.frogobox.helper
  */
-public class FileCrud {
-
-    // Deklarasi data path hasil program -------------------------------------------------------------------------------
-
-    private final static String EXTENSION_TXT = ".txt";
-    private final static String PATH_OUTPUT_DATA = "result";
-    private final static String PATH_ROOT_PROJECT = "Folder Output : [root_project]/";
-
-    private String dateNow = new Constant().getDateNow();
-
-    private String PATH_FILE_TIME = "#" + dateNow + EXTENSION_TXT;
-
-
-    // -----------------------------------------------------------------------------------------------------------------
-
-    private String getPathOutputFolder(String fileName){
-        return PATH_OUTPUT_DATA + "/" + fileName + PATH_FILE_TIME;
-    }
+public class FileCrudHelper {
 
     public void createFolderOutPut(){
         try {
@@ -57,14 +45,14 @@ public class FileCrud {
         BufferedWriter bufferedWriter = null;
         try {
 
-            File file = new File(getPathOutputFolder(fileName));
+            File file = new File(new BaseHelper().getPathOutputFolder(fileName));
             // if file doesnt exists, then create it
             if (!file.exists()) {
                 file.createNewFile();
             }
             fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(PATH_ROOT_PROJECT + getPathOutputFolder(fileName));
+            bufferedWriter.write(PATH_ROOT_PROJECT + new BaseHelper().getPathOutputFolder(fileName));
             bufferedWriter.newLine();
 
         } catch (IOException e) {
@@ -74,7 +62,7 @@ public class FileCrud {
                     bufferedWriter.close();
                 if (fileWriter != null)
                     fileWriter.close();
-                Desktop.getDesktop().open(new File(getPathOutputFolder(fileName)));
+                Desktop.getDesktop().open(new File(new BaseHelper().getPathOutputFolder(fileName)));
             } catch (IOException ex) {
             }
         }

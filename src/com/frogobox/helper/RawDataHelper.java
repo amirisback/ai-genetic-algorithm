@@ -23,7 +23,7 @@ import java.util.Collections;
  * FrogoBox Software Industries
  * com.frogobox.helper
  */
-public class RawHelper {
+public class RawDataHelper {
 
     public ArrayList<Test> fetchTestData(String sourceRaw) {
         ArrayList<Test> testArrayList = new ArrayList<>();

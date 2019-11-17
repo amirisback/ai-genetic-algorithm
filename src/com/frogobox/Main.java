@@ -2,6 +2,7 @@ package com.frogobox;
 
 import com.frogobox.algorithm.FetchDataAlgo;
 import com.frogobox.algorithm.RegenerationAlgo;
+import com.frogobox.helper.FileCrudHelper;
 
 import static com.frogobox.base.BaseHelper.*;
 
@@ -26,7 +27,8 @@ public class Main {
     public static void main(String[] args) {
         new Main().programName();
         new RegenerationAlgo().steadyState();
-        new FetchDataAlgo().showDataSetTargetOne();
+        new FetchDataAlgo().showDataSetPracticeOne();
+        new FileCrudHelper().outputMain("Amir");
     }
 
     private void programName() {

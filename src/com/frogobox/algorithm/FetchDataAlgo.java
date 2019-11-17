@@ -1,12 +1,13 @@
 package com.frogobox.algorithm;
 
-import com.frogobox.helper.RawHelper;
+import com.frogobox.helper.RawDataHelper;
 import com.frogobox.model.Practice;
 import com.frogobox.model.Test;
 
 import java.util.ArrayList;
 
-import static com.frogobox.helper.Constant.Variable.*;
+import static com.frogobox.base.BaseHelper.*;
+
 
 /**
  * Created by Faisal Amir
@@ -34,13 +35,13 @@ public class FetchDataAlgo {
     private ArrayList<String> dataSetTargetTwo;
 
     public FetchDataAlgo() {
-        RawHelper rawHelper = new RawHelper();
-        dataSetTestOne = rawHelper.fetchTestData(PATH_RAW_CSV_DATA_UJI_OPSI_1);
-        dataSetTestTwo = rawHelper.fetchTestData(PATH_RAW_CSV_DATA_UJI_OPSI_2);
-        dataSetPracticeOne = rawHelper.fetchPracticeData(PATH_RAW_CSV_DATA_LATIH_OPSI_1);
-        dataSetPracticeTwo = rawHelper.fetchPracticeData(PATH_RAW_CSV_DATA_LATIH_OPSI_2);
-        dataSetTargetOne = rawHelper.fetchTargetData(PATH_RAW_CSV_TARGET_LATIH_OPSI_1);
-        dataSetTargetTwo = rawHelper.fetchTargetData(PATH_RAW_CSV_TARGET_LATIH_OPSI_2);
+        RawDataHelper rawDataHelper = new RawDataHelper();
+        dataSetTestOne = rawDataHelper.fetchTestData(PATH_RAW_CSV_DATA_UJI_OPSI_1);
+        dataSetTestTwo = rawDataHelper.fetchTestData(PATH_RAW_CSV_DATA_UJI_OPSI_2);
+        dataSetPracticeOne = rawDataHelper.fetchPracticeData(PATH_RAW_CSV_DATA_LATIH_OPSI_1);
+        dataSetPracticeTwo = rawDataHelper.fetchPracticeData(PATH_RAW_CSV_DATA_LATIH_OPSI_2);
+        dataSetTargetOne = rawDataHelper.fetchTargetData(PATH_RAW_CSV_TARGET_LATIH_OPSI_1);
+        dataSetTargetTwo = rawDataHelper.fetchTargetData(PATH_RAW_CSV_TARGET_LATIH_OPSI_2);
     }
 
     public ArrayList<Test> getDataSetTestOne() {
