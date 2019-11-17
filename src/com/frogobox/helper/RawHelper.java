@@ -33,9 +33,9 @@ public class RawHelper {
             String column;
             while ((column = reader.readLine()) != null) {
                 String[] splitString = column.split(",");
-                ArrayList<String> arrayTemp = new ArrayList<>();
-                Collections.addAll(arrayTemp, splitString);
-                Test mTest = new Test(arrayTemp.get(0), arrayTemp.get(1), arrayTemp.get(2), arrayTemp.get(3));
+                ArrayList<String> partTemp = new ArrayList<>();
+                Collections.addAll(partTemp, splitString);
+                Test mTest = new Test(partTemp.get(0), partTemp.get(1), partTemp.get(2), partTemp.get(3));
                 testArrayList.add(mTest);
             }
             reader.close();
