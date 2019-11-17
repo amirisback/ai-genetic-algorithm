@@ -30,6 +30,7 @@ public class BaseHelper {
 
     // -----------------------------------------------------------------------------------------------------------------
     // Path Raw
+    public static final String FILENAME = "Hasil-Decission-Tree";
     public static final String EXTENSION_TXT = ".txt";
     public static final String EXTENSION_CSV = ".csv";
     public static final String PATH_OUTPUT_DATA = "result";

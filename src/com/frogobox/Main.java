@@ -24,7 +24,7 @@ import static com.frogobox.base.BaseHelper.*;
  */
 public class Main {
 
-    private static final String FILENAME = "Hasil-Decission-Tree";
+
 
     public static void main(String[] args) {
         new Main().programCreator();
